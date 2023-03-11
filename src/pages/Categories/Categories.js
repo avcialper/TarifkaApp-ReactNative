@@ -9,13 +9,17 @@ import styles from './Categories.styles'
 
 const Categories = ({navigation}) => {
 
+    // To fetch data
     const { data, loading, error } = useFetch(API_CATEGORIES_URL)
 
+    // Animations
     if (loading) return <Loading />
     if (error) return <Error />
 
+    // Go to meals page
     const handleCategorySelect = (strCategory, strCategoryDescription) => navigation.navigate('MealsPage', {strCategory, strCategoryDescription})
 
+    // To render a category card
     const renderCategory = ({ item }) => 
         <CategoryCard 
             categories={item} 

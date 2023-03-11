@@ -10,7 +10,7 @@ const DetailCard = ({ item }) => {
             <Image source={{ uri: item.strMealThumb }} style={styles.image} />
             <View style={styles.body}>
                 <View>
-                    {
+                    {   // If the meal have a tag this component is visible
                         item.strTags !== null && <Text style={styles.tags} >#{item.strTags}</Text>
                     }
                     <View style={styles.title} >

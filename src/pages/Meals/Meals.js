@@ -9,14 +9,19 @@ import MealCard from '../../components/MealCard'
 
 const Meals = ({ route, navigation }) => {
 
+    // Takes category name and description
     const { strCategory, strCategoryDescription } = route.params
+    // Gets the category meals
     const {data, loading, error} = useFetch(API_MEALS_URL+strCategory)
 
+    // Animations
     if(loading) return <Loading />
     if(error) return <Error />
 
+    // Go to deatil page
     const handleMealSelect = (idMeal) => navigation.navigate('DetailPage',{idMeal})
 
+    // To render a meal card
     const renderMeal = ({item}) => <MealCard meal={item} onSelect={() => handleMealSelect(item.idMeal)} />
 
     return (

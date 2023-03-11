@@ -7,6 +7,7 @@ const useFetch = (url) => {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
+    // To fetch data
     const fetchData = async () => {
         try {
             const {data: mealData} = await axios.get(url)
@@ -18,6 +19,7 @@ const useFetch = (url) => {
         }
     }
 
+    // To run fetch function
     useEffect(() => {
         fetchData()
     }, [url])
